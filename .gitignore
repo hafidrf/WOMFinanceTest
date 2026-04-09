@@ -31,7 +31,6 @@ yarn-error.*
 *.pem
 
 # local env files
-.env
 .env*.local
 
 # local notes / credentials (do not commit)
@@ -46,3 +45,4 @@ akun.txt
 # generated native folders
 /ios
 /android
+config.bat
