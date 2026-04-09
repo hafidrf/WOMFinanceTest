@@ -2,6 +2,8 @@
 
 React Native app dengan 3 halaman utama: Login, Home, dan Detail.
 
+Kode project berada di **root repository** ini (bukan di subfolder `app/`). Setelah clone, jalankan perintah dari root folder yang sama dengan `package.json`.
+
 ## Fitur yang sudah diimplementasikan
 
 - Login dengan validasi email + password
