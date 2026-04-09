@@ -59,8 +59,31 @@ npm run start
    - email tampil di Home
    - session tersimpan
 
-## 5) Troubleshooting cepat
+## 5) Web browser (`localhost`) — wajib di Google Cloud
+
+Untuk **Login with Google** saat app dibuka di browser (mis. `http://localhost:8085`), OAuth client tipe **Web application** harus memiliki **keduanya**:
+
+### Authorized JavaScript origins
+
+Tambahkan origin **tanpa path** (satu per port yang Anda pakai), contoh:
+
+- `http://localhost:8085`
+- `http://localhost:8080` (jika pernah pakai port lain)
+
+Kalau bagian ini **kosong**, Google sering menolak meskipun port sudah benar.
+
+### Authorized redirect URIs
+
+Daftarkan **persis** string yang dipakai app (Google membandingkan byte-per-byte):
+
+- `http://localhost:8085` (disarankan — tanpa `/` di akhir; ini yang dipakai Expo web setelah normalisasi)
+- `http://localhost:8085/` (tambahkan juga untuk jaga-jaga)
+- `https://auth.expo.io/@USERNAME_EXPO_ANDA/SLUG_DARI_app.json` — untuk Expo Go / flow proxy
+
+Setelah mengubah, tunggu 1–3 menit lalu hard refresh / coba jendela penyamaran.
+
+## 6) Troubleshooting cepat
 
 - **`access blocked`**: pastikan email Anda ada di Test users.
-- **redirect mismatch**: cek URI redirect yang dipakai AuthSession dan samakan di OAuth client.
+- **`redirect_uri_mismatch`**: hampir selalu karena (a) **JavaScript origins** belum diisi untuk `localhost`, (b) redirect URI beda **slash** `/` di akhir, atau (c) **port** di browser beda dengan yang didaftarkan (8080 vs 8085).
 - **tombol Google warning konfigurasi**: env belum terisi atau salah penamaan key.

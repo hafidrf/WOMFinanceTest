@@ -34,6 +34,12 @@ yarn-error.*
 .env
 .env*.local
 
+# local notes / credentials (do not commit)
+akun.txt
+
+# built Android packages (use Drive / EAS link for submission)
+*.apk
+
 # typescript
 *.tsbuildinfo
 
